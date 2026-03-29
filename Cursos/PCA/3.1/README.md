@@ -23,12 +23,12 @@ Cada exercício é executado separadamente e solicitará dados do usuário pelo 
 
 ## Lista de Exercícios
 
-* **Exercício 1:** Operações aritméticas com dois números (soma, subtração, multiplicação e divisão).
-* **Exercício 2:** Cálculo da média aritmética de três notas.
-* **Exercício 3:** Inserção de três números em uma lista e cálculo da soma dos elementos.
-* **Exercício 4:** Conversão de temperatura de Celsius para Fahrenheit.
-* **Exercício 5:** Cálculo da área e do perímetro de um retângulo.
-* **Exercício 6:** Conversão de valores de reais (BRL) para dólares (USD).
-* **Exercício 7:** Cálculo do custo total de um produto com aplicação de desconto e imposto.
-* **Exercício 8:** Conversão de distância de quilômetros para metros e centímetros.
-* **Exercício 9:** Cálculo do volume de uma caixa retangular.
+* **Exercício 1:** Classificação da temperatura de um ambiente como fria, agradável ou quente com base em um valor informado.
+* **Exercício 2:** Verificação da situação de um aluno (reprovado, em recuperação ou aprovado) de acordo com a nota final.
+* **Exercício 3:** Determinação do tipo de ingresso que uma pessoa pode pagar no cinema com base na idade.
+* **Exercício 4:** Classificação do consumo mensal de energia elétrica de uma residência como baixo, médio ou alto.
+* **Exercício 5:** Verificação se um número informado é positivo, negativo ou igual a zero.
+* **Exercício 6:** Comparação entre dois números para identificar qual é o maior ou se são iguais.
+* **Exercício 7:** Classificação de uma pessoa como criança, adolescente ou adulta com base na idade.
+* **Exercício 8:** Verificação se a senha digitada pelo usuário corresponde à senha cadastrada no sistema.
+* **Exercício 9:** Verificação se uma compra recebeu desconto com base no valor total informado.
