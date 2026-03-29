@@ -10,13 +10,13 @@ Este repositório contém uma lista de exercícios desenvolvidos em **Python**, 
 4. Execute o exercício desejado com o comando:
 
 ```
-python exercicios/nome_do_arquivo.py
+python Cursos/PCA/2.1-2.2/exercicios/nome_do_arquivo.py
 ```
 
 Exemplo:
 
 ```
-python exercicios/exercicio1.py
+python Cursos/PCA/2.1-2.2/exercicios/exercicio1.py
 ```
 
 Cada exercício é executado separadamente e solicitará dados do usuário pelo terminal.
