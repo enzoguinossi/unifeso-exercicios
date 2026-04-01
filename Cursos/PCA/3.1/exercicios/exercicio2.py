@@ -1,51 +1,53 @@
 import re
 
 class Aluno:
-    def __init__(self, nome: str, nota: str | int | float):
-        self.nome:str = self._tratar_nome(nome)
-        self.nota:float = self._tratar_nota(nota)
+    def __init__(self, nome: str, nota_texto: str) -> None:
+        self.__nome: str = self._tratar_nome(nome)
+        self.__nota: float = self._tratar_nota(nota_texto)
 
-    def _tratar_nota(self, texto: str | float | int) -> float:
-        if isinstance(texto, (int, float)):
-            return float(texto)
+    def _tratar_nota(self, texto: str) -> float:
+        limpo = texto.strip().replace(',', '.')
+        limpo = re.sub(r'[^0-9.]', '', limpo)
         
-        texto = texto.strip()
-        texto = texto.replace('.', '')  
-        texto = texto.replace(',', '.')
-        texto = re.sub(r'[^0-9.]', '', texto)
-
-        if not texto:
-            raise ValueError("Nota inválida")
-        return float(texto)
+        if not limpo:
+            raise ValueError("Nota inválida.")
+        
+        valor = float(limpo)
+        if not (0 <= valor <= 10):
+            raise ValueError("Nota deve estar entre 0 e 10.")
+        return valor
 
     def _tratar_nome(self, texto: str) -> str:
-        texto = texto.strip()
-        if not texto:
-            raise ValueError("Nome não pode ser vazio")
-        texto = texto.title()
-        return texto
+        limpo = texto.strip().title()
+        if not limpo:
+            raise ValueError("Nome não pode ser vazio.")
+        return limpo
+
+    @property
+    def nome(self) -> str:
+        return self.__nome
+
+    @property
+    def nota(self) -> float:
+        return self.__nota
 
     @property
     def situacao(self) -> str:
-        if(self.nota < 4):
+        if self.__nota < 4:
             return "Reprovado"
-        elif(self.nota < 7):
+        elif self.__nota < 7:
             return "Recuperação"
-        else: 
-            return "Aprovado"
-
-
+        return "Aprovado"
 
 def main() -> None:
-    nome_aluno: str = input("Digite o nome do aluno:")
-    while True:
-        nota_aluno: str = input("Digite a nota final do aluno:")
-        try:
-            aluno: Aluno = Aluno(nome_aluno,nota_aluno)
-            break
-        except ValueError:
-            print("Valor inválido! Tente novamente.")
-            
-    print(f"A situação do aluno {aluno.nome} é {aluno.situacao}")
+    try:
+        nome_entrada: str = input("Digite o nome do aluno: ")
+        nota_entrada: str = input("Digite a nota final do aluno: ")
+        
+        aluno: Aluno = Aluno(nome_entrada, nota_entrada)
+        print(f"A situação do aluno {aluno.nome} é {aluno.situacao} (Nota: {aluno.nota})")
+    except ValueError as e:
+        print(f"Erro: {e}")
 
-main()
+if __name__ == "__main__":
+    main()

@@ -1,35 +1,41 @@
 import re
 
 class Residencia:
-    def __init__(self, consumo: str) -> None:
-        self.consumo: float = self._tratar_consumo(consumo)
+    def __init__(self, consumo_texto: str) -> None:
+        self.__consumo: float = self._tratar_consumo(consumo_texto)
 
-    def _tratar_consumo(self, texto: str | float | int) -> float:
-        if isinstance(texto, (int, float)):
-            return float(texto)
+    def _tratar_consumo(self, texto: str) -> float:
+        limpo = texto.strip().replace(',', '.')
+        limpo = re.sub(r'[^0-9.]', '', limpo)
         
-        texto = texto.strip()
-        texto = texto.replace('.', '')  
-        texto = texto.replace(',', '.')
-        texto = re.sub(r'[^0-9.]', '', texto)
+        if not limpo:
+            raise ValueError("Valor de consumo inválido.")
+        
+        valor = float(limpo)
+        if valor < 0:
+            raise ValueError("Consumo não pode ser negativo.")
+        return valor
 
-        if not texto:
-            raise ValueError("Valor de consumo inválido")
-        return float(texto)
-    
+    @property
+    def consumo(self) -> float:
+        return self.__consumo
+
     @property
     def classificacao(self) -> str:
-        if self.consumo < 100:
+        if self.__consumo < 100:
             return "Baixo"
-        elif self.consumo < 200:
+        elif self.__consumo < 200:
             return "Médio"
-        else:
-            return "Alto"
+        return "Alto"
 
-def main():
-    consumo_input = input("Digite o consumo de energia em kwH: ")
-    residencia = Residencia(consumo_input)
-    print(f"Consumo: {residencia.consumo} kWh")
-    print(f"Classificação: {residencia.classificacao}")
+def main() -> None:
+    try:
+        consumo_input: str = input("Digite o consumo de energia em kwH: ")
+        residencia: Residencia = Residencia(consumo_input)
+        print(f"Consumo: {residencia.consumo} kWh")
+        print(f"Classificação: {residencia.classificacao}")
+    except ValueError as e:
+        print(f"Erro: {e}")
 
-main()
+if __name__ == "__main__":
+    main()
