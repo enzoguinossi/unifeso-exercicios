@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Formulário da Empresa XYZ</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<form method="post" action="" id="formulario">
+
+    <h2 id="form_titulo">Formulário da Empresa XYZ</h2>
+
+    <div class="form_input">
+
+        <label for="nome">
+            Nome:
+        </label>
+        <input type="text" name="nome" id="nome" placeholder="ex.: Fulano de Tal">
+
+        <label for="data_nascimento">
+            Data Nascimento:
+        </label>
+        <input type="date" name="data_nascimento" id="data_nascimento">
+
+        <label for="endereco">
+            Endereço:
+        </label>
+        <input type="text" name="endereco" id="endereco" placeholder="ex.: Rua, Av, Bairro, CEP">
+
+        <label for="telefone">
+            Telefone:
+        </label>
+        <input type="tel" name="telefone" id="telefone" placeholder="(XX) XXXXX-XXXX">
+
+        <label for="cidade">
+            Cidade:
+        </label>
+        <input type="text" name="cidade" id="cidade" placeholder="ex.: Teresópolis">
+
+        <label for="estado">
+            Estado:
+        </label>
+        <select name="estado" id="estado">
+            <option value="RJ">RJ</option>
+            <option value="SP">SP</option>
+            <option value="MG">MG</option>
+            <option value="RS">RS</option>
+        </select>
+
+        <label for="sexo">
+            Sexo:
+        </label>
+        <select name="sexo" id="sexo">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+        </select>
+
+        <label for="bens">Bens</label>
+
+        <fieldset id="bens">
+            <label for="casa">
+                <input type="checkbox" name="bens[]" id="casa" value="casa">
+                Casa
+            </label>
+
+            <label for="carro">
+                <input type="checkbox" name="bens[]" id="carro" value="carro">
+                Carro
+            </label>
+
+            <label for="moto">
+                <input type="checkbox" name="bens[]" id="moto" value="moto">
+                Moto
+            </label>
+        </fieldset>
+
+        <label for="observacao">
+            Observação:
+        </label>
+        <textarea name="observacao" id="observacao" cols="30" rows="4"></textarea>
+
+        <div class="form_btns">
+            <button type="submit" class="btn btnEnviar">Enviar</button>
+            <button type="reset" class="btn btnLimpar">Limpar</button>
+        </div>
+
+    </div>
+
+</form>
+</body>
+</html>
